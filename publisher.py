@@ -19,6 +19,16 @@ fig.add_trace(go.Scatter(x = original_time['timestamp'], y = original_time['valu
 fig.add_trace(go.Scatter(x = anomalydata['timestamp'], y = anomalydata['value'], mode = "lines+markers",
                              marker = dict(color='red', size=4),
                              name = 'detected_anomaly'))
+for i in range(len(detected_anomalies.index)):
+  fig.add_shape(
+        type="rect",
+        x0=detected_anomalies.at[i, "start"],
+        x1=detected_anomalies.at[i, "end"]
+        y0=0
+        y1=400
+        fillcolor="red",
+        opacity=0.2,
+    )
 fig.update_layout(xaxis_title="timestamp", yaxis_title="value", width=800)
 #fig.show() #graph figure with discrete anomalies highlighted in red
 st.header("End-to-End Workflow for Unsupervised Anomaly Detection using Orion")
