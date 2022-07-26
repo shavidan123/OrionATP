@@ -22,7 +22,6 @@ fig.add_trace(go.Scatter(x = anomalydata['timestamp'], y = anomalydata['value'],
 for i in range(len(detected_anomalies.index)):
   fig.add_shape(
         type="rect",
-        xref="date",
         x0=detected_anomalies.at[i, "start"],
         x1=detected_anomalies.at[i, "end"],
         y0=0,
