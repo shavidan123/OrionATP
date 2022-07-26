@@ -48,12 +48,14 @@ fig2.add_trace(go.Scatter(x = anomalydata['timestamp'], y = anomalydata['value']
                              name = 'detected_anomaly'))
 fig2.update_layout(xaxis_title="timestamp", yaxis_title="value")
 st.plotly_chart(fig2)
+st.text_area(placeholder="Type any comments on the data in here!")
 st.markdown("As seen in the full data graphed earlier, the values tend to rise before falling a significant amount. Since the ARIMA model specifically uses a moving average, any sudden change will be detected as more anomalous. This must be the reason why the anomalous segments are detected during the greatest increases in the values of the data. If we find the dates corresponding with the timestamps, we can try to determine why anomalies were detected on those specific dates.")
 
 st.header("Graphing the Data")
 st.markdown("Finally, we graph the data. Depending on the type of data, plotly has different types of graphs of varying complexity, but this basic graph seems to work just fine for now. Discrete anomalous points are highlighted with red dots, while the timeseries data is graphed over time with the blue line.") 
 
 st.plotly_chart(fig)
+st.text_area(placeholder="Type any comments on the data in here!")
 
 st.header("Conclusions")
 
